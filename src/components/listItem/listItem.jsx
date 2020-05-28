@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey[1],
     display:"flex",
     alignItems:"center",
-    padding:theme.spacing(1)
+    padding:theme.spacing(3)
   },
   
 }));

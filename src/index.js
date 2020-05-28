@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Home from './components/Home/index';
-import { BrowserRouter } from 'react-router-dom';
+import { Router, HashRouter } from 'react-router-dom';
+import { history } from './components/history/index';
 
 ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter history={history}>
         <App />
-    </BrowserRouter>
+    </HashRouter>
     , document.getElementById('app'));

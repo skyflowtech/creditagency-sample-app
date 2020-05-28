@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextFieldMolecule from "../../textField/textField";
+import Info from "../../Info";
 import Header from "../../layout/header";
 import SideNavBar from "../../layout/sideNavBar";
 import Footer from "../../layout/footer";
 
 const useStyles = makeStyles((theme) => ({
-  names: {
+  income: {
     display: "flex",
     justifyContent: "center",
     marginTop: theme.spacing(5),
@@ -24,19 +25,27 @@ const useStyles = makeStyles((theme) => ({
   components: {
     display: "flex",
   },
+  info: {
+    justifyContent: "center",
+    display: "flex",
+    marginTop: theme.spacing(20),
+  },
   footer: {
     position: "absolute",
     width: "100%",
     bottom: theme.spacing(10),
   },
 }));
-export default function NamePage(props) {
+
+export default function IncomeInfo(props) {
   const classes = useStyles();
+  const msg =
+    "You may include personal income,which is income you have earned,including full-time,part-time,or seasonal jobs,self-employment,interests or dividends,retirement and public assistance.";
   const goBack = () => {
-    props.history.push("/");
+    props.history.push("/academicInformation");
   };
-  const goToDOBPage = () => {
-    props.history.push("/personalInformation/dob");
+  const goToResidencePage = () => {
+    props.history.push("/financialInformation/residence");
   };
   return (
     <div className={classes.root}>
@@ -46,19 +55,20 @@ export default function NamePage(props) {
         <div className={classes.page}>
           <div>
             <h1 className={classes.text}>
-              <b>My name is</b>
+              <b>My yearly income is</b>
             </h1>
           </div>
-          <div className={classes.names}>
-            <TextFieldMolecule name="FIRST NAME"></TextFieldMolecule>
-            <TextFieldMolecule name="LAST NAME"></TextFieldMolecule>
+          <div className={classes.income}>
+            <TextFieldMolecule name="ANNUAL INCOME" />
+          </div>
+          <div className={classes.info}>
+            <Info information={msg} />
           </div>
           {/* <div className={classes.footer}>
-            <Footer prev={goBack} next={goToDOBPage} />
+            <Footer prev={goBack} next={goToResidencePage} />
           </div> */}
         </div>
       </div>
     </div>
   );
 }
-
