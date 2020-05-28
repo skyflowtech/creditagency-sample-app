@@ -30,7 +30,7 @@ const App = (props) => {
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
             <Route path="/" exact component={Home} />
-            {/* <Route path="/personalInformation" exact component={WizardSteps} /> */}
+            <Route path="/personalInformation" exact component={WizardSteps} />
             {/* <Route path="/personalInformation/dob" exact component={DobPage} />
             <Route path="/contactInformation" exact component={PhoneNumberComponent} />
             <Route path="/contactInformation/address" exact component={AddressComponent} />
