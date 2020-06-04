@@ -9,6 +9,7 @@ import creditCard from "../../../assets/creditCard.png";
 import Header from "../header";
 import DobPage from "../../personalInfo/dobPage/index";
 import ListItem from "../../listItem/listItem";
+import theme from '../../../utils/theme';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,16 +37,17 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(10),
   },
 }));
-export default function SideNavBar() {
+export default function SideNavBar({list}) {
   const classes = useStyles();
+  // console.log(theme.palette.primary[0]);
   return (
     <div className={classes.root}>
       <div>
         <div className={classes.infoList}>
-          <ListItem img={one} text="PERSONAL INFORMATION" bool={true} />
-          <ListItem img={two} text="CONTACT INFORMATION" bool={false} />
-          <ListItem img={three} text="ACADEMIC INFORMATION" bool={false} />
-          <ListItem img={four} text="FINANCIAL INFORMATION" bool={false} />
+          <ListItem number="1" text="PERSONAL INFORMATION" bool={list.pInfo.status==="current"} status={list.pInfo.status} />
+          <ListItem number="2" text="CONTACT INFORMATION" bool={list.cInfo.status==="current"} status={list.cInfo.status}/>
+          <ListItem number="3"  text="ACADEMIC INFORMATION" bool={list.aInfo.status==="current"} status={list.aInfo.status} />
+          <ListItem number="4"  text="FINANCIAL INFORMATION" bool={list.fInfo.status==="current"} status={list.fInfo.status} />
         </div>
       </div>
       <div className={classes.securee}>

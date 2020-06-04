@@ -6,6 +6,7 @@ import TextFieldMolecule from "../../textField/textField";
 import Footer from "../../layout/footer";
 import SideNavBar from "../../layout/sideNavBar";
 import { RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
+import theme from "../../../utils/theme";
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -59,7 +60,12 @@ const useStyles = makeStyles((theme) => ({
 export default function ResidenceInfo(props) {
   const classes = useStyles();
   const [value, setValue] = useState("");
-  
+  const list={
+    pInfo:{status:"done"},
+    cInfo:{status:"done"},
+    aInfo:{status:"done"},
+    fInfo:{status:"current"}
+  };
 
   const handleRadioChange = (event) => {
     console.log(event.target.value);
@@ -76,7 +82,7 @@ export default function ResidenceInfo(props) {
     <div className={classes.root}>
       <Header />
       <div className={classes.components}>
-        <SideNavBar />
+        <SideNavBar list={list}/>
         <div className={classes.page}>
           <div>
             <h1 className={classes.text}>
@@ -116,7 +122,7 @@ export default function ResidenceInfo(props) {
                 <b>and my monthly housing expense is</b>
               </h1>
               <div className={classes.status}>
-              <TextFieldMolecule  name="MONTHLY HOUSING EXPENSES"/>
+              <TextFieldMolecule type="number" name="MONTHLY HOUSING EXPENSES" placeholder="Expenses"/>
               </div>
           </div>
         }

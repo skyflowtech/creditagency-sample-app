@@ -1,24 +1,37 @@
 import React, { Component } from "react";
 import arrow from "../../assets/arrow.png";
 import { makeStyles } from "@material-ui/core/styles";
+import NumberIcon from "../numberIcon";
+import theme from '../../utils/theme';
 
 const useStyles = makeStyles((theme) => ({
   item: {
     ...theme.h6,
-    color: theme.palette.grey[1],
+    // color: theme.palette.grey[1],
     display:"flex",
     alignItems:"center",
     padding:theme.spacing(3)
   },
+  text:{
+    padding:theme.spacing(3)
+  }
   
 }));
 
-export default function ListItem({ img, text, bool }) {
+export default function ListItem({ text, bool,number,status}) {
   const classes = useStyles();
   return (
     <div className={classes.item}>
-      <img src={img} alt="one"></img>&nbsp;<span>{text}</span>
-      &nbsp;&nbsp;&nbsp;
+      <NumberIcon status={status} number={number}></NumberIcon>
+      {status==="done" &&
+      <span className={classes.text} style={{color:theme.palette.completed[0]}}>{text}</span>
+      }
+      {status==="current" &&
+      <span className={classes.text} style={{color:theme.palette.current[0]}}>{text}</span>
+      }
+      {status==="pending" &&
+      <span className={classes.text} style={{color:theme.palette.pending[0]}}>{text}</span>
+      }
       {bool && <img src={arrow} alt="arrow"></img>}
     </div>
   );

@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     root:{
         flexGrow:1,
         display:"flex",
-        position:"absolute",
+        // position:"absolute",
         padding:theme.spacing(2),
         backgroundColor:"transparent",
         justifyContent:"space-between",
@@ -33,17 +33,17 @@ const useStyles = makeStyles((theme) => ({
     }
 
 }));
-export default function Header(){
+export default function Header(props){
 
     const classes=useStyles();
     return(
-        <div className={classes.root}>
+        <div className={classes.root} style={{position:props.pos || "absolute" }}>
 
         
         <div className={classes.logoWithText}>
             <img className={classes.logo} src={logo} alt="logo"></img>
             <div className={classes.logoText}>
-              powered by <Link to="/">Skyflow</Link>
+              powered by <Link to="/skyflow">Skyflow</Link>
             </div>
             </div>
             <div className={classes.helpContent}>

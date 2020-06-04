@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   infoIcon:{
 
-    top:theme.spacing(0),
+    top:theme.spacing(1),
     left:"30px",
     position:"absolute"
   }

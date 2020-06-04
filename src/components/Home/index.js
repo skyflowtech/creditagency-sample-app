@@ -31,12 +31,14 @@ const useStyles = makeStyles((theme) => ({
   page: {
     
     position: "relative",
+    // textAlign:"center"
   },
   info: {
         marginTop: theme.spacing(20),
         marginLeft: theme.spacing(65),
         textAlign: "center",
         justifyContent:"center",
+        
       },
   components: {
     display: "flex",
@@ -52,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "row",
         alignItems:"center",
         justifyContent:"center",
+        
       },
 }));
 export default function Home(props) {

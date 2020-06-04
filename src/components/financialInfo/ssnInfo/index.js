@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField } from "@material-ui/core";
 import Info from "../../Info";
@@ -6,6 +6,7 @@ import Header from "../../layout/header";
 import SideNavBar from "../../layout/sideNavBar";
 import TextFieldMolecule from "../../textField/textField";
 import Footer from "../../layout/footer";
+import theme from "../../../utils/theme";
 
 const useStyles = makeStyles((theme) => ({
   ssn: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   page: {
     width: "75%",
-    position:"relative"
+    position: "relative",
   },
   components: {
     display: "flex",
@@ -32,37 +33,41 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(20),
   },
   footer: {
-    position:"absolute",
-    width:"100%",
-    bottom:theme.spacing(10)
+    position: "absolute",
+    width: "100%",
+    bottom: theme.spacing(10),
   },
 }));
 export default function SSNInfo(props) {
   const classes = useStyles();
+  const list = {
+    pInfo: {status: "done" },
+    cInfo: {status: "done" },
+    aInfo: {status: "done" },
+    fInfo: {status: "current" },
+  };
   const msg =
     "By clicking next button,I am providing written instructions under the Fair Credit Reporting Act authorizing Skyflow to obtain information solely to conduct a prequalification for credit and acknowledge that my credit will not be impacted as a result.";
   const handleSSN = (event) => {
     const val = event.target.value;
-    if (val.length === 4) {
-      event.target.value = val.replace(val, val + " ");
-      console.log(event.target.value);
+
+    // event.target.value = val.replace(/.(?=.{4,}$)/g, "*");
+
+    if (val.length <= 6) {
+      event.target.value = val.replace(/\d/g, "*");
     }
-    if (val.length === 6) {
-      event.target.value = val + " ";
-    }
-    event.target.value = val.replace(/.(?=.{4,}$)/g, "*");
   };
-  const goBack=()=>{
+  const goBack = () => {
     props.history.push("/financialInformation/residence");
   };
-  const goToSummary=()=>{
+  const goToSummary = () => {
     props.history.push("/");
   };
   return (
     <div className={classes.root}>
       <Header />
       <div className={classes.components}>
-        <SideNavBar />
+        <SideNavBar list={list} />
         <div className={classes.page}>
           <div>
             <h1 className={classes.text}>
@@ -71,8 +76,11 @@ export default function SSNInfo(props) {
           </div>
           <div className={classes.ssn}>
             <TextFieldMolecule
+              // type="number"
               name="SOCIAL SECURITY NUMBER"
               handleChange={handleSSN}
+              placeholder="XXXX XX XXXX"
+              maxLength="10"
             />
           </div>
           <div className={classes.info}>

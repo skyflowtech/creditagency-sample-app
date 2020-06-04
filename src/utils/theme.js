@@ -14,20 +14,30 @@ const theme = createMuiTheme({
       {
           0:"#1665d8"
       },
+      royalBlue:{
+        0:"#4169E1",
+        
+      },
       white:{
         0:"#ffffff"
       },
       lightBlue:{
         0:"#eaedf3"
-      }
-    // primary: {
-    // },
-    // secondary: {
-    // },
+      },
+    current: {
+      0:"#4169E1"
+    },
+    completed: {
+      0:"#1d1d1d"
+    },
+    pending:{
+      0:"#696969"
+    },
     // error: {
     // },
-    // background: {
-    // },
+    background: {
+      default:"#fff"
+    },
     // text : {
         //add primary secondary etc here
     // },

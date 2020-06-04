@@ -12,12 +12,17 @@ import EmpComponent from './academicInfo/jobStatus/index';
 import IncomeInfo from './financialInfo/incomeInfo/index';
 import ResidenceInfo from './financialInfo/residenceInfo/index';
 import SSNInfo from './financialInfo/ssnInfo/index';
-// import { history } from './history/index';
+import { Route, HashRouter, BrowserRouter } from 'react-router-dom';
 
-export default function WizardSteps({history}) {
+
+export default function WizardSteps() {
   
     return(
-      <Wizard >
+      <BrowserRouter>
+      <Route
+          render={({ history }) => (
+            <Wizard history={history}>
+      
         <Steps>
         {/* <Step id="Home">
             <Home/>
@@ -48,7 +53,11 @@ export default function WizardSteps({history}) {
           </Step>
         </Steps>
         <Navigation />
-      </Wizard>);
+      </Wizard>
+      
+      )}/>
+      </BrowserRouter>
+      );
     
     }
 

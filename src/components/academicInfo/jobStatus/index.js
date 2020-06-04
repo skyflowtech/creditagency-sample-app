@@ -6,6 +6,7 @@ import TextFieldMolecule from "../../textField/textField";
 import Footer from "../../layout/footer";
 import SideNavBar from "../../layout/sideNavBar";
 import { RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
+import theme from "../../../utils/theme";
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -57,7 +58,13 @@ const useStyles = makeStyles((theme) => ({
 export default function EmpComponent(props) {
   const classes = useStyles();
   const [value, setValue] = useState("");
-  const [empStatus, setStatus] = useState(true);
+  
+  const list={
+    pInfo:{status:"done"},
+    cInfo:{status:"done"},
+    aInfo:{status:"current"},
+    fInfo:{status:"pending"}
+  };
   const goBack=()=>{
     props.history.push("/contactInformation/address");
   };
@@ -67,13 +74,13 @@ export default function EmpComponent(props) {
   const handleRadioChange = (event) => {
     console.log(event.target.value);
     setValue(event.target.value);
-    setStatus(!empStatus);
+    
   };
   return (
     <div className={classes.root}>
       <Header />
       <div className={classes.components}>
-        <SideNavBar />
+        <SideNavBar list={list}/>
         <div className={classes.page}>
           <div>
             <h1 className={classes.text}>
@@ -100,8 +107,9 @@ export default function EmpComponent(props) {
               />
             </RadioGroup>
           </div>
-          <div hidden={empStatus} >
-            
+          
+          {value==="Yes" &&
+          <div>
               <h1 className={classes.text}>
                 <b>My employment status is</b>
               </h1>
@@ -127,7 +135,7 @@ export default function EmpComponent(props) {
                 />
               </RadioGroup>
             </div>
-          </div>
+  </div> }
 
           {/* <div className={classes.footer}>
             <Footer prev={goBack} next={goToFinance}/>

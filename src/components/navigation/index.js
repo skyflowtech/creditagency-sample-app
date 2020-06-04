@@ -12,10 +12,13 @@ const useStyles = makeStyles((theme) => ({
     width:"70%",
     position:"absolute",
     justifyContent: "space-between",
-    marginLeft:theme.spacing(100)
+    marginLeft:theme.spacing(100),
+    
   },
   next:{
-      textAlign:"right"
+      textAlign:"right",
+      marginRight:0,
+      width:"100%"
   },
   previous:{
       textAlign:"left"
@@ -29,23 +32,27 @@ function Navigation() {
       render={({ next, previous, step, steps }) => (
         <div className={classes.footer}>
           {steps.indexOf(step) > 0 && (
+            <div className={classes.previous}>
             <Button
-              className={classes.previous}
+              
               onClick={previous}
               variant="outlined"
             >
               Previous
             </Button>
+            </div>
           )}
           {steps.indexOf(step) < steps.length - 1 && (
+            <div className={classes.next}>
             <Button
-              className={classes.next}
+              
               onClick={next}
               variant="contained"
               color="primary"
             >
               Next
             </Button>
+            </div>
           )}
         </div>
       )}

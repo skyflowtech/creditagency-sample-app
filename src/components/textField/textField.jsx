@@ -23,7 +23,7 @@ export default function TextFieldMolecule(props) {
   return (
     <div className={classes.text}>
     <div>{props.name}</div>
-          <TextField style={{width:props.width || "350px"}} onChange={props.handleChange} className={classes.field} variant="outlined"></TextField>
+          <TextField style={{width:props.width || "350px"}} placeholder={props.placeholder} inputProps={{maxLength:`${props.maxLength}`}} type={props.type} onChange={props.handleChange} className={classes.field} variant="outlined"></TextField>
           </div>
 
    

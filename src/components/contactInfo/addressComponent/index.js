@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Info from "../../Info";
 import Header from "../../layout/header";
 import TextFieldMolecule from "../../textField/textField";
 import Footer from "../../layout/footer";
 import SideNavBar from "../../layout/sideNavBar";
+import theme from "../../../utils/theme";
 
 const useStyles = makeStyles((theme) => ({
   address: {
@@ -14,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.h6,
   },
   addresses: {
-    
     marginTop: theme.spacing(5),
     ...theme.typography.h6,
   },
@@ -48,6 +48,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function AddressComponent(props) {
   const classes = useStyles();
+  const list={
+    pInfo:{status:"done"},
+    cInfo:{status:"current"},
+    aInfo:{status:"pending"},
+    fInfo:{status:"pending"}
+  };
   const msg =
     "PO Box,PMB,business,temporary,and non-US based addresses are not accepted";
   const goBack = () => {
@@ -60,7 +66,7 @@ export default function AddressComponent(props) {
     <div>
       <Header />
       <div className={classes.components}>
-        <SideNavBar />
+        <SideNavBar list={list}/>
         <div className={classes.page}>
           <div className={classes.content}>
             <div>
@@ -71,23 +77,35 @@ export default function AddressComponent(props) {
             <div className={classes.addresses}>
               <div className={classes.address}>
                 <TextFieldMolecule
+                  type="text"
                   width="550px"
                   name="PERMANENT ADDRESS"
+                  placeholder="Permanent address"
                 ></TextFieldMolecule>
-                <TextFieldMolecule name="APT/STREET"></TextFieldMolecule>
+                <TextFieldMolecule
+                  type="text"
+                  name="APT/STREET"
+                  placeholder="Apartment / Street"
+                ></TextFieldMolecule>
               </div>
               <div className={classes.address}>
                 <TextFieldMolecule
+                  type="number"
                   width="290px"
                   name="ZIP CODE"
+                  placeholder="ZIP code"
                 ></TextFieldMolecule>
                 <TextFieldMolecule
+                  type="text"
                   width="290px"
                   name="CITY"
+                  placeholder="City"
                 ></TextFieldMolecule>
                 <TextFieldMolecule
+                  type="text"
                   width="290px"
                   name="STATE"
+                  placeholder="State"
                 ></TextFieldMolecule>
               </div>
             </div>

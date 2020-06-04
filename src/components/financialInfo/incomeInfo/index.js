@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextFieldMolecule from "../../textField/textField";
 import Info from "../../Info";
 import Header from "../../layout/header";
 import SideNavBar from "../../layout/sideNavBar";
 import Footer from "../../layout/footer";
+import theme from "../../../utils/theme";
 
 const useStyles = makeStyles((theme) => ({
   income: {
@@ -39,6 +40,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function IncomeInfo(props) {
   const classes = useStyles();
+  const list={
+    pInfo:{status:"done"},
+    cInfo:{status:"done"},
+    aInfo:{status:"done"},
+    fInfo:{status:"current"}
+  };
   const msg =
     "You may include personal income,which is income you have earned,including full-time,part-time,or seasonal jobs,self-employment,interests or dividends,retirement and public assistance.";
   const goBack = () => {
@@ -51,7 +58,7 @@ export default function IncomeInfo(props) {
     <div className={classes.root}>
       <Header />
       <div className={classes.components}>
-        <SideNavBar />
+        <SideNavBar list={list}/>
         <div className={classes.page}>
           <div>
             <h1 className={classes.text}>
@@ -59,7 +66,7 @@ export default function IncomeInfo(props) {
             </h1>
           </div>
           <div className={classes.income}>
-            <TextFieldMolecule name="ANNUAL INCOME" />
+            <TextFieldMolecule type="number" name="ANNUAL INCOME" placeholder="Enter your income"/>
           </div>
           <div className={classes.info}>
             <Info information={msg} />

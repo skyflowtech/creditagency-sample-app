@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextFieldMolecule from "../../textField/textField";
 import Header from "../../layout/header";
 import SideNavBar from "../../layout/sideNavBar";
 import Footer from "../../layout/footer";
+import theme from '../../../utils/theme';
 
 const useStyles = makeStyles((theme) => ({
   dob: {
@@ -32,6 +33,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function DobPage(props) {
   const classes = useStyles();
+  const list={
+    pInfo:{status:"current"},
+    cInfo:{status:"pending"},
+    aInfo:{status:"pending"},
+    fInfo:{status:"pending"}
+  };
   const goBack = () => {
     props.history.push("/personalInformation");
   };
@@ -42,7 +49,7 @@ export default function DobPage(props) {
     <div className={classes.root}>
       <Header />
       <div className={classes.components}>
-        <SideNavBar />
+        <SideNavBar list={list}/>
         <div className={classes.page}>
           <div>
             <h1 className={classes.text}>
@@ -50,7 +57,7 @@ export default function DobPage(props) {
             </h1>
           </div>
           <div className={classes.dob}>
-            <TextFieldMolecule name="DATE OF BIRTH (MM/DD/YYYY)"></TextFieldMolecule>
+            <TextFieldMolecule name="DATE OF BIRTH (MM/DD/YYYY)" placeholder="MM/DD/YYYY"></TextFieldMolecule>
           </div>
           {/* <div className={classes.footer}>
             <Footer prev={goBack} next={goToContactPage} />

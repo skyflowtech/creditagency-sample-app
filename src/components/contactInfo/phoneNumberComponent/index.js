@@ -1,10 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Info from "../../Info";
 import Header from "../../layout/header";
 import TextFieldMolecule from "../../textField/textField";
 import Footer from "../../layout/footer";
 import SideNavBar from "../../layout/sideNavBar";
+import theme from "../../../utils/theme";
+import InputMask from 'react-input-mask';
+import { TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   number: {
@@ -38,6 +41,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function PhoneNumberComponent(props) {
   const classes = useStyles();
+  const list={
+    pInfo:{status:"done"},
+    cInfo:{status:"current"},
+    aInfo:{status:"pending"},
+    fInfo:{status:"pending"}
+  };
   const msg =
     "Mobile phone numbers are best so you can receive important messages and alerts from Skyflow.\n\nBy clicking next button,you authorize Skyflow to contact you at this phone number for any reason related to this account including via text/SMS messages and voice";
   
@@ -51,7 +60,7 @@ export default function PhoneNumberComponent(props) {
     <div>
       <Header />
       <div className={classes.components}>
-        <SideNavBar />
+        <SideNavBar list={list}/>
         <div className={classes.page}>
           <div>
             <h1 className={classes.text}>
@@ -59,7 +68,9 @@ export default function PhoneNumberComponent(props) {
             </h1>
           </div>
           <div className={classes.number}>
-            <TextFieldMolecule name="PHONE NUMBER"></TextFieldMolecule>
+            <TextFieldMolecule type="number" name="PHONE NUMBER" placeholder="Enter your phone number"></TextFieldMolecule>
+            {/* <TextField style={{width:"350px"}} placeholder="Enter your phone number" type="number" variant="outlined"><InputMask mask="(+1)999-999-99-99" maskChar=" " /></TextField> */}
+
           </div>
           <div className={classes.info}>
             <Info information={msg} />
