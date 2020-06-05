@@ -26,6 +26,7 @@ import Navigation from "./components/navigation/index";
 import NumberIcon from "./components/numberIcon";
 import Summary from "./components/summary";
 import FinalPage from "./components/finalPage";
+import Information from "./components/information";
 
 const App = (props) => {
   const Home = React.lazy(() => import("./components/Home/index"));
@@ -42,6 +43,8 @@ const App = (props) => {
             {/* <BrowserRouter> */}
             <Switch>
               <Route path="/" exact component={Home} />
+              <Route path="/done" exact component={FinalPage} />
+              <Route path="/summary" exact component={Summary} />
               <Route
                 path="/skyflow"
                 component={() => {

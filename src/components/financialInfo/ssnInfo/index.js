@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { TextField } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import Info from "../../Info";
 import Header from "../../layout/header";
 import SideNavBar from "../../layout/sideNavBar";
@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     width: "100%",
     bottom: theme.spacing(10),
+    justifyContent:"flex-end"
   },
 }));
 export default function SSNInfo(props) {
@@ -47,7 +48,7 @@ export default function SSNInfo(props) {
     fInfo: {status: "current" },
   };
   const msg =
-    "By clicking next button,I am providing written instructions under the Fair Credit Reporting Act authorizing Skyflow to obtain information solely to conduct a prequalification for credit and acknowledge that my credit will not be impacted as a result.";
+    <p>By clicking next button,I am providing written instructions under the Fair Credit Reporting Act authorizing Skyflow to obtain information solely to conduct a prequalification for credit and acknowledge that my credit will not be impacted as a result.</p>;
   const handleSSN = (event) => {
     const val = event.target.value;
 
@@ -63,6 +64,11 @@ export default function SSNInfo(props) {
   const goToSummary = () => {
     props.history.push("/");
   };
+
+  const goToSubmitPage=()=>{
+    props.history.push("/summary");
+  };
+
   return (
     <div className={classes.root}>
       <Header />

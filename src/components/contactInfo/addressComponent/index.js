@@ -55,7 +55,7 @@ export default function AddressComponent(props) {
     fInfo:{status:"pending"}
   };
   const msg =
-    "PO Box,PMB,business,temporary,and non-US based addresses are not accepted";
+    <p>PO Box,PMB,business,temporary,and non-US based addresses are not accepted</p>;
   const goBack = () => {
     props.history.push("/contactInformation");
   };
@@ -85,25 +85,28 @@ export default function AddressComponent(props) {
                 <TextFieldMolecule
                   type="text"
                   name="APT/STREET"
+                  width="300px"
                   placeholder="Apartment / Street"
                 ></TextFieldMolecule>
               </div>
               <div className={classes.address}>
                 <TextFieldMolecule
                   type="number"
-                  width="290px"
+                  width="220px"
                   name="ZIP CODE"
+                  width="230px"
                   placeholder="ZIP code"
                 ></TextFieldMolecule>
                 <TextFieldMolecule
                   type="text"
-                  width="290px"
+                  width="350px"
                   name="CITY"
+                  
                   placeholder="City"
                 ></TextFieldMolecule>
                 <TextFieldMolecule
                   type="text"
-                  width="290px"
+                  width="220px"
                   name="STATE"
                   placeholder="State"
                 ></TextFieldMolecule>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png';
+import theme from '../../../utils/theme';
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
     helpContent:{
         float:"right",
-        padding:theme.spacing(3)
+        padding:theme.spacing(8)
     }
 
 }));
@@ -43,11 +44,11 @@ export default function Header(props){
         <div className={classes.logoWithText}>
             <img className={classes.logo} src={logo} alt="logo"></img>
             <div className={classes.logoText}>
-              powered by <Link to="/skyflow">Skyflow</Link>
+              <span style={{fontSize:"12px"}}>powered by </span><Link style={{color:theme.palette.skyBlue[0],textDecoration:"none",fontFamily:"Montserrat"}} to="/skyflow">Skyflow</Link>
             </div>
             </div>
-            <div className={classes.helpContent}>
-            Having troubles? <Link to="/">Get Help</Link>
+            <div style={{fontSize:"12px"}} className={classes.helpContent}>
+            Having troubles? <Link style={{color:theme.palette.royalBlue[0],textDecoration:"none"}} to="/">Get Help</Link>
           </div>
           </div>
     );

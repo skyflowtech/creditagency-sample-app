@@ -97,19 +97,19 @@ export default function ResidenceInfo(props) {
             >
               <FormControlLabel
                 value="Rent"
-                control={<Radio />}
+                control={<Radio color="primary"/>}
                 label="Rent"
                 className={classes.card}
               />
               <FormControlLabel
                 value="Own"
-                control={<Radio />}
+                control={<Radio color="primary"/>}
                 label="Own"
                 className={classes.card}
               />
               <FormControlLabel
                 value="Other"
-                control={<Radio />}
+                control={<Radio color="primary"/>}
                 label="Other"
                 className={classes.card}
               />

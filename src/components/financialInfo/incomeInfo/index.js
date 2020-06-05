@@ -47,7 +47,7 @@ export default function IncomeInfo(props) {
     fInfo:{status:"current"}
   };
   const msg =
-    "You may include personal income,which is income you have earned,including full-time,part-time,or seasonal jobs,self-employment,interests or dividends,retirement and public assistance.";
+    <p>You may include personal income,which is income you have earned,including full-time,part-time,or seasonal jobs,self-employment,interests or dividends,retirement and public assistance.</p>;
   const goBack = () => {
     props.history.push("/academicInformation");
   };

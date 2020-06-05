@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   number: {
     borderRadius: "50%",
     width: "9%",
-
+    
     padding: "3.5% 0",
     position: "relative",
 
@@ -15,16 +15,10 @@ const useStyles = makeStyles((theme) => ({
 
     textAlign: "center",
     lineHeight: "0",
-    font: "17px Roboto",
+    
     objectFit: "cover",
   },
-  check: {
-    fontSize: "16px", // modify to test
-    marginBottom: "1em",
-    listStyleType: "none",
-    padding: ".25em 0 0 2.5em",
-    position: "relative",
-  },
+  
 }));
 
 export default function NumberIcon(props) {
@@ -32,8 +26,8 @@ export default function NumberIcon(props) {
   if (props.status === "done") {
     return (
       <div>
-        {" "}
-        <CheckCircleIcon style={{ fill: "#39b54a" }} />
+        
+        <CheckCircleIcon style={{ fill: theme.palette.green[0] }} />
       </div>
     );
   }

@@ -46,10 +46,11 @@ const useStyles = makeStyles((theme) => ({
   card: {
     border:"1px solid #eaedf3",
     width:"280px",
-    height:"80px"
+    height:"80px",
+    
   },
   status: {
-      display:"flex",
+    display:"flex",
     flexDirection:"row",
     justifyContent: "center",
   },
@@ -95,17 +96,18 @@ export default function EmpComponent(props) {
             >
               <FormControlLabel
                 value="Yes"
-                control={<Radio />}
+                control={<Radio color="primary" />}
                 label="Yes"
                 className={classes.card}
               />
               <FormControlLabel
                 value="No"
-                control={<Radio />}
+                control={<Radio color="primary"/>}
                 label="No"
                 className={classes.card}
               />
             </RadioGroup>
+            {/* <Radio color="primary" className={classes.card} label="No" value="No"/> */}
           </div>
           
           {value==="Yes" &&
@@ -117,19 +119,19 @@ export default function EmpComponent(props) {
               <RadioGroup className={classes.status}>
                 <FormControlLabel
                   value="Employed Full-Time"
-                  control={<Radio />}
+                  control={<Radio color="primary"/>}
                   label="Employed Full-Time"
                   className={classes.card}
                 />
                 <FormControlLabel
                   value="Employed Part-Time"
-                  control={<Radio />}
+                  control={<Radio color="primary"/>}
                   label="Employed Part-Time"
                   className={classes.card}
                 />
                 <FormControlLabel
                   value="Self-Employed"
-                  control={<Radio />}
+                  control={<Radio color="primary"/>}
                   label="Self-Employed"
                   className={classes.card}
                 />

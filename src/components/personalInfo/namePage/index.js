@@ -7,6 +7,7 @@ import Footer from "../../layout/footer";
 import { Button } from '@material-ui/core';
 import theme from '../../../utils/theme';
 
+
 const useStyles = makeStyles((theme) => ({
   names: {
     display: "flex",
@@ -62,16 +63,9 @@ export default function NamePage(props) {
             <TextFieldMolecule type="text" name="FIRST NAME" placeholder="Enter your First name"></TextFieldMolecule>
             <TextFieldMolecule type="text" name="LAST NAME" placeholder="Enter your last name"></TextFieldMolecule>
           </div>
-          <div className={classes.footer}>
-            {/* <Footer prev={goBack} next={goToDOBPage} /> */}
-            {/* <Button
-              className={classes.previous}
-              onClick={goBack}
-              variant="outlined"
-            >
-              Previous
-            </Button> */}
-          </div>
+          {/* <div className={classes.footer}>
+            <Footer prev={goBack} next={goToDOBPage} />
+            </div> */}
         </div>
       </div>
     </div>

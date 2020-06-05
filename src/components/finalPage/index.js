@@ -21,34 +21,30 @@ const useStyles = makeStyles((theme) => ({
   list:{
       ...theme.typography.h5,
       color:theme.palette.pending[0],
-    //   padding:theme.spacing(10)
+    
   }
 }));
 export default function FinalPage() {
   const classes = useStyles();
+  const points=["Amazon prime student on us!","Cell phone protection upto $600","1% cashback on most purchases","No Annual Fee","No Foreign Transaction Fees","20% Variable APR"];
   return (
     <div>
       <Header pos="relative" />
       <Divider />
       <div className={classes.heading}>
         <Typography variant="h1">Almost Done!</Typography>
-        <Typography variant="h3" style={{padding:theme.spacing(3)}}>
-          Horaay,you are prequalified for OpenSky Edu.
+        <Typography  style={{padding:theme.spacing(3),fontSize:"26px"}}>
+          Horaay, you are prequalified for OpenSky Edu.
         </Typography>
     </div>
         <div className={classes.content}>
           <img src={finalImg} style={{objectFit:"contain",padding:theme.spacing(5)}}></img>
-          <div>
-          <Typography variant="h1">OpenSky Edu</Typography>
-          <Divider/>
+          <div style={{marginLeft:theme.spacing(5)}}>
+          <Typography style={{fontSize:"50px"}}>OpenSky Edu</Typography>
+          <Divider style={{width:"160px"}}/>
           <div className={classes.list}>
-          <ul >
-              <li> Amazon prime student on us!</li>
-              <li>Cell phone protection upto $600</li>
-              <li>1% cashback on most purchases</li>
-              <li>No Annual Fee</li>
-              <li>No Foreign Transaction Fees</li>
-              <li>20% Variable APR</li>
+          <ul>
+             {points.map((e)=><li style={{marginTop:theme.spacing(5)}}>{e}</li>)} 
           </ul>
           </div>
           

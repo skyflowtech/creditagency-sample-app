@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ListItem({ text, bool,number,status}) {
   const classes = useStyles();
   return (
+    // <div style={{display:"flex"}}>
     <div className={classes.item}>
       <NumberIcon status={status} number={number}></NumberIcon>
       {status==="done" &&
@@ -32,7 +33,9 @@ export default function ListItem({ text, bool,number,status}) {
       {status==="pending" &&
       <span className={classes.text} style={{color:theme.palette.pending[0]}}>{text}</span>
       }
-      {bool && <img src={arrow} alt="arrow"></img>}
+      {bool && <img style={{marginRight:0,objectFit:"contain"}} src={arrow} alt="arrow"></img>}
     </div>
+    
+    // {/* </div> */}
   );
 }
